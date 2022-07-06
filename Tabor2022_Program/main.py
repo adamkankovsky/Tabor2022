@@ -11,6 +11,7 @@ camera = cv2.VideoCapture(0)
 #camera.set(3,width)
 #camera.set(4,height)
 
+
 def decodeCam(image):
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     barcodes = pyzbar.decode(gray)
@@ -45,14 +46,10 @@ try:
             if barcodeData == "LTLovetin2022":
                 print("well done")
                 sleep(5)
-                barcodes = []
-                frame = None
-                gray = None
+                cv2.destroyAllWindows()
             else:
                 print("ouch")
                 sleep(5)
-                barcodes = []
-                frame = None
-                gray = None
+                cv2.destroyAllWindows()
 except KeyboardInterrupt:
     print('interrupted!')
