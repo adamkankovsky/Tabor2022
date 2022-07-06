@@ -44,12 +44,12 @@ try:
         if barcodes:
             barcodeData = barcodes[0].data.decode()
             if barcodeData == "LTLovetin2022":
+                cv2.destroyAllWindows()
                 print("well done")
                 sleep(5)
-                cv2.destroyAllWindows()
             else:
+                cv2.destroyAllWindows()
                 print("ouch")
                 sleep(5)
-                cv2.destroyAllWindows()
 except KeyboardInterrupt:
     print('interrupted!')
