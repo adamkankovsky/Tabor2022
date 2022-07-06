@@ -2,7 +2,7 @@ import cv2
 import pyzbar.pyzbar as pyzbar
 from time import sleep
 import RPi.GPIO as GPIO
-from playsound import playsound
+from preferredsoundplayer import playsound
 
 #width = 2592
 #height = 1944
