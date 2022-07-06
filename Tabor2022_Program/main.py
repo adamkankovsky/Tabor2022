@@ -16,15 +16,13 @@ def decodeCam(image):
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     barcodes = pyzbar.decode(gray)
     print('reading...', end='\r')
-    for barcode in barcodes:
-        barcodeData = barcode.data.decode()
-        barcodeType = barcode.type
-        if barcodeData == "LTLovetin2022":
-            print("well done")
-            sleep(5)
-        else:
-            print("ouch")
-            sleep(5)
+    barcodeData = barcodes.data.decode()
+    if barcodeData == "LTLovetin2022":
+        print("well done")
+        sleep(5)
+    else:
+        print("ouch")
+        sleep(5)
     return image
 
 GPIO.setwarnings(False)
@@ -39,8 +37,6 @@ try:
     sleep(2)  # Sleep for 2 second
     GPIO.output(11, GPIO.LOW)  # Turn off
     while True:
-    	ret, frame = camera.read()
-    	im=decodeCam(frame)
         # Read current frame
         ret, frame = camera.read()
         im=decodeCam(frame)
