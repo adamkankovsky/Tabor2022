@@ -17,7 +17,7 @@ def decodeCam(image):
     print('reading...', end='\r')
     if barcodes:
         print(barcodes)
-        barcodeData = barcodes.data.decode()
+        barcodeData = barcodes[0].data.decode()
         if barcodeData == "LTLovetin2022":
             print("well done")
             sleep(5)
