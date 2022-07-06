@@ -2,7 +2,7 @@ import cv2
 import pyzbar.pyzbar as pyzbar
 from time import sleep
 import RPi.GPIO as GPIO
-from preferredsoundplayer import playsound
+from preferredsoundplayer import soundplay
 
 #width = 2592
 #height = 1944
@@ -35,14 +35,14 @@ try:
                     camera.release()
                     cv2.destroyAllWindows()
                     print("well done")
-                    playsound('success.mp3')
+                    soundplay("success.mp3")
                     sleep(10)
                     break
                 else:
                     camera.release()
                     cv2.destroyAllWindows()
                     print("ouch")
-                    playsound('crash.mp3')
+                    soundplay("crash.mp3")
                     sleep(10)
                     break
 except KeyboardInterrupt:
