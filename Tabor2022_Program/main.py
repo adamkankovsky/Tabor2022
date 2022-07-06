@@ -20,11 +20,9 @@ def decodeCam(image):
         if barcodeData == "LTLovetin2022":
             print("well done")
             sleep(5)
-            return image
         else:
             print("ouch")
             sleep(5)
-            return image
 
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BOARD)
@@ -40,6 +38,15 @@ try:
     while True:
         # Read current frame
         ret, frame = camera.read()
-        im=decodeCam(frame)
+        gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+        barcodes = pyzbar.decode(gray)
+        if barcodes:
+            barcodeData = barcodes[0].data.decode()
+            if barcodeData == "LTLovetin2022":
+                print("well done")
+                sleep(5)
+            else:
+                print("ouch")
+                sleep(5)
 except KeyboardInterrupt:
- print('interrupted!')
+    print('interrupted!')
