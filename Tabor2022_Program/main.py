@@ -19,7 +19,12 @@ def decodeCam(image):
     for barcode in barcodes:
         barcodeData = barcode.data.decode()
         barcodeType = barcode.type
-        print(barcodeData)
+        if barcodeData == "LTLovetin2022":
+            print("well done")
+            sleep(5)
+        else:
+            print("ouch")
+            sleep(5)
     return image
 
 GPIO.setwarnings(False)
