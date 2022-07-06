@@ -46,9 +46,13 @@ try:
                 print("well done")
                 sleep(5)
                 barcodes = []
+                frame = None
+                gray = None
             else:
                 print("ouch")
                 sleep(5)
                 barcodes = []
+                frame = None
+                gray = None
 except KeyboardInterrupt:
     print('interrupted!')
