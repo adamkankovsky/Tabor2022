@@ -35,12 +35,14 @@ try:
                     camera.release()
                     cv2.destroyAllWindows()
                     print("well done")
+                    playsound('success.mp3')
                     sleep(10)
                     break
                 else:
                     camera.release()
                     cv2.destroyAllWindows()
                     print("ouch")
+                    playsound('crash.mp3')
                     sleep(10)
                     break
 except KeyboardInterrupt:
