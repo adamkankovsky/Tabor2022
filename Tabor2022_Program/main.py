@@ -1,8 +1,8 @@
 import cv2
 import pyzbar.pyzbar as pyzbar
-from datetime import datetime
 from time import sleep
 import RPi.GPIO as GPIO
+from playsound import playsound
 
 #width = 2592
 #height = 1944
@@ -10,20 +10,6 @@ import RPi.GPIO as GPIO
 #camera = cv2.VideoCapture(0)
 #camera.set(3,width)
 #camera.set(4,height)
-
-
-def decodeCam(image):
-    gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-    barcodes = pyzbar.decode(gray)
-    print('reading...', end='\r')
-    if barcodes:
-        barcodeData = barcodes[0].data.decode()
-        if barcodeData == "LTLovetin2022":
-            print("well done")
-            sleep(5)
-        else:
-            print("ouch")
-            sleep(5)
 
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BOARD)
@@ -49,13 +35,13 @@ try:
                     camera.release()
                     cv2.destroyAllWindows()
                     print("well done")
-                    sleep(5)
+                    sleep(10)
                     break
                 else:
                     camera.release()
                     cv2.destroyAllWindows()
                     print("ouch")
-                    sleep(5)
+                    sleep(10)
                     break
 except KeyboardInterrupt:
     print('interrupted!')
