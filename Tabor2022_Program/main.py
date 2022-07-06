@@ -7,7 +7,7 @@ import RPi.GPIO as GPIO
 #width = 2592
 #height = 1944
 
-camera = cv2.VideoCapture(0)
+#camera = cv2.VideoCapture(0)
 #camera.set(3,width)
 #camera.set(4,height)
 
