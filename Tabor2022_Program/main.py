@@ -38,7 +38,6 @@ try:
     while True:
         # Read current frame
         ret, frame = camera.read()
-        sleep(5)
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
         barcodes = pyzbar.decode(gray)
         if barcodes:
@@ -46,8 +45,10 @@ try:
             if barcodeData == "LTLovetin2022":
                 print("well done")
                 sleep(5)
+                barcodes = []
             else:
                 print("ouch")
                 sleep(5)
+                barcodes = []
 except KeyboardInterrupt:
     print('interrupted!')
