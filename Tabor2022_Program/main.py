@@ -16,7 +16,6 @@ def decodeCam(image):
     barcodes = pyzbar.decode(gray)
     print('reading...', end='\r')
     if barcodes:
-        print(barcodes)
         barcodeData = barcodes[0].data.decode()
         if barcodeData == "LTLovetin2022":
             print("well done")
