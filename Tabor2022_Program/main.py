@@ -35,14 +35,14 @@ try:
                     camera.release()
                     cv2.destroyAllWindows()
                     print("well done")
-                    playsound.playsound('/home/pi/Tabor2022/Tabor2022_Program/success.mp3')
+                    playsound('/home/pi/Tabor2022/Tabor2022_Program/success.mp3')
                     sleep(10)
                     break
                 else:
                     camera.release()
                     cv2.destroyAllWindows()
                     print("ouch")
-                    playsound.playsound('/home/pi/Tabor2022/Tabor2022_Program/crash.mp3')
+                    playsound('/home/pi/Tabor2022/Tabor2022_Program/crash.mp3')
                     sleep(10)
                     break
 except KeyboardInterrupt:
