@@ -38,8 +38,6 @@ try:
     sleep(2)  # Sleep for 2 second
     GPIO.output(11, GPIO.LOW)  # Turn off
     while True:
-    	ret, frame = camera.read()
-    	im=decodeCam(frame)
         # Read current frame
         ret, frame = camera.read()
         im=decodeCam(frame)
