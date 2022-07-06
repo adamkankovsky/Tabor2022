@@ -20,10 +20,11 @@ def decodeCam(image):
         if barcodeData == "LTLovetin2022":
             print("well done")
             sleep(5)
+            return image
         else:
             print("ouch")
             sleep(5)
-    return image
+            return image
 
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BOARD)
