@@ -37,19 +37,23 @@ try:
     sleep(2)  # Sleep for 2 second
     GPIO.output(11, GPIO.LOW)  # Turn off
     while True:
-        # Read current frame
-        ret, frame = camera.read()
-        gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-        barcodes = pyzbar.decode(gray)
-        if barcodes:
-            barcodeData = barcodes[0].data.decode()
-            if barcodeData == "LTLovetin2022":
-                cv2.destroyAllWindows()
-                print("well done")
-                sleep(5)
-            else:
-                cv2.destroyAllWindows()
-                print("ouch")
-                sleep(5)
+        camera = cv2.VideoCapture(0)
+        while True:
+            # Read current frame
+            ret, frame = camera.read()
+            gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+            barcodes = pyzbar.decode(gray)
+            if barcodes:
+                barcodeData = barcodes[0].data.decode()
+                if barcodeData == "LTLovetin2022":
+                    cv2.destroyAllWindows()
+                    print("well done")
+                    sleep(5)
+                    break
+                else:
+                    cv2.destroyAllWindows()
+                    print("ouch")
+                    sleep(5)
+                    break
 except KeyboardInterrupt:
     print('interrupted!')
