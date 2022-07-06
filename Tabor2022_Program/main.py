@@ -19,22 +19,24 @@ def decodeCam(image):
     for barcode in barcodes:
         barcodeData = barcode.data.decode()
         barcodeType = barcode.type
-        print("["+str(datetime.now())+"] Type:{} | Data: {}".format(barcodeType, barcodeData))
+        print(barcodeData)
     return image
 
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BOARD)
+GPIO.setup(11, GPIO.OUT, initial=GPIO.LOW)
 try:
     GPIO.output(11, GPIO.HIGH)  # Turn on
-    sleep(2)  # Sleep for 1 second
+    sleep(2)  # Sleep for 2 second
     GPIO.output(11, GPIO.LOW)  # Turn off
     sleep(2)
     GPIO.output(11, GPIO.HIGH)  # Turn on
-    sleep(2)  # Sleep for 1 second
+    sleep(2)  # Sleep for 2 second
     GPIO.output(11, GPIO.LOW)  # Turn off
     while True:
-    # Read current frame
-    ret, frame = camera.read()
-    im=decodeCam(frame)
+        # Read current frame
+        ret, frame = camera.read()
+        im=decodeCam(frame)
+        sleep(10)
 except KeyboardInterrupt:
  print('interrupted!')
