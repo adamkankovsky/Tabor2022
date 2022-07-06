@@ -1,3 +1,5 @@
+import os
+
 import cv2
 import pyzbar.pyzbar as pyzbar
 from time import sleep
@@ -35,14 +37,18 @@ try:
                     camera.release()
                     cv2.destroyAllWindows()
                     print("well done")
-                    playsound('/home/pi/Tabor2022/Tabor2022_Program/success.mp3')
+                    file = "success.mp3"
+                    os.system("mpg123 " + file)
+                    #playsound('/home/pi/Tabor2022/Tabor2022_Program/success.mp3')
                     sleep(10)
                     break
                 else:
                     camera.release()
                     cv2.destroyAllWindows()
                     print("ouch")
-                    playsound('/home/pi/Tabor2022/Tabor2022_Program/crash.mp3')
+                    file = "crash.mp3"
+                    os.system("mpg123 " + file)
+                    #playsound('/home/pi/Tabor2022/Tabor2022_Program/crash.mp3')
                     sleep(10)
                     break
 except KeyboardInterrupt:
