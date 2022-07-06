@@ -1,4 +1,4 @@
-from __future__ import print_function
+rom __future__ import print_function
 import cv2
 import pyzbar.pyzbar as pyzbar
 from datetime import datetime
