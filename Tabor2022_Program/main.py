@@ -1,4 +1,3 @@
-from __future__ import print_function
 import cv2
 import pyzbar.pyzbar as pyzbar
 from datetime import datetime
@@ -40,6 +39,5 @@ try:
         # Read current frame
         ret, frame = camera.read()
         im=decodeCam(frame)
-        sleep(10)
 except KeyboardInterrupt:
  print('interrupted!')
