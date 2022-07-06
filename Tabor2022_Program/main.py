@@ -46,11 +46,13 @@ try:
             if barcodes:
                 barcodeData = barcodes[0].data.decode()
                 if barcodeData == "LTLovetin2022":
+                    camera.release()
                     cv2.destroyAllWindows()
                     print("well done")
                     sleep(5)
                     break
                 else:
+                    camera.release()
                     cv2.destroyAllWindows()
                     print("ouch")
                     sleep(5)
