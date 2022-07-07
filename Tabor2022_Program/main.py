@@ -33,7 +33,7 @@ try:
             barcodes = pyzbar.decode(gray)
             if barcodes:
                 barcodeData = barcodes[0].data.decode()
-                if barcodeData == "LTLovetin2022":
+                if 0 <= int(barcodeData) <= 35:
                     camera.release()
                     cv2.destroyAllWindows()
                     print("well done")
