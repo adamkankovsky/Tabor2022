@@ -16,14 +16,19 @@ from playsound import playsound
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(11, GPIO.OUT, initial=GPIO.LOW)
+GPIO.setup(12, GPIO.OUT, initial=GPIO.LOW)
 try:
     GPIO.output(11, GPIO.HIGH)  # Turn on
+    GPIO.output(12, GPIO.HIGH)  # Turn on
     sleep(2)  # Sleep for 2 second
     GPIO.output(11, GPIO.LOW)  # Turn off
+    GPIO.output(12, GPIO.LOW)  # Turn off
     sleep(2)
     GPIO.output(11, GPIO.HIGH)  # Turn on
+    GPIO.output(12, GPIO.HIGH)  # Turn on
     sleep(2)  # Sleep for 2 second
     GPIO.output(11, GPIO.LOW)  # Turn off
+    GPIO.output(12, GPIO.LOW)  # Turn off
     while True:
         camera = cv2.VideoCapture(0)
         while True:
