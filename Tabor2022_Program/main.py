@@ -30,6 +30,9 @@ try:
     sleep(2)  # Sleep for 2 second
     GPIO.output(11, GPIO.LOW)  # Turn off
     GPIO.output(12, GPIO.LOW)  # Turn off
+    sleep(2)
+    GPIO.output(11, GPIO.HIGH)  # Turn on
+    GPIO.output(12, GPIO.HIGH)  # Turn on
     while True:
         camera = cv2.VideoCapture(0)
         while True:
