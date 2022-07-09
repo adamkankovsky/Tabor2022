@@ -39,34 +39,24 @@ try:
             barcodes = pyzbar.decode(gray)
             if barcodes:
                 barcodeData = barcodes[0].data.decode()
-                if isinstance(barcodeData, int):
-			if 0 <= int(barcodeData) <= 35:
-                    		camera.release()
-                    		cv2.destroyAllWindows()
-                    		print("well done")
-                    		file = "/home/pi/Tabor2022/Tabor2022_Program/success.mp3"
-                    		os.system("mpg123 " + file)
-                    		#playsound('/home/pi/Tabor2022/Tabor2022_Program/success.mp3')
-                    		sleep(10)
-                    		break
-                	else:
-                    		camera.release()
-                    		cv2.destroyAllWindows()
-                    		print("ouch")
-                    		file = "/home/pi/Tabor2022/Tabor2022_Program/crash.mp3"
-                    		os.system("mpg123 " + file)
-                    		#playsound('/home/pi/Tabor2022/Tabor2022_Program/crash.mp3')
-                    		sleep(10)
-                    		break
-		else:
-			camera.release()
-                        cv2.destroyAllWindows()
-                        print("ouch")
-                        file = "/home/pi/Tabor2022/Tabor2022_Program/cr>
-                        os.system("mpg123 " + file)
-                        #playsound('/home/pi/Tabor2022/Tabor2022_Progra>
-                        sleep(10)
-                        break
+                if isinstance(barcodeData, int) and (0 <= int(barcodeData) <= 35):
+                    camera.release()
+                    cv2.destroyAllWindows()
+                    print("well done")
+                    file = "/home/pi/Tabor2022/Tabor2022_Program/success.mp3"
+                    os.system("mpg123 " + file)
+                    #playsound('/home/pi/Tabor2022/Tabor2022_Program/success.mp3')
+                    sleep(10)
+                    break
+                else:
+                    camera.release()
+                    cv2.destroyAllWindows()
+                    print("ouch")
+                    file = "/home/pi/Tabor2022/Tabor2022_Program/crash.mp3"
+                    os.system("mpg123 " + file)
+                    #playsound('/home/pi/Tabor2022/Tabor2022_Program/crash.mp3')
+                    sleep(10)
+                    break
 
 except KeyboardInterrupt:
     print('interrupted!')
